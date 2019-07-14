@@ -1,0 +1,39 @@
+Name = "MDErgo1";
+Variant = "standard";
+Layout = "Default";
+Base = "Blank";
+Version = "1.0";
+Author = "Asko Soukka";
+KLL = "0.5.7.11";
+Date = "2019-08-01";
+
+U"EQUALS" : ledControl( 5, 255 );
+U"BACKSLASH" : ledControl( 1, 15 );
+U"TAB" : ledControl( 0, 15 );
+
+U"U" : U"P7";
+U"I" : U"P8";
+U"O" : U"P9";
+U"M" : U"P1";
+U"J" : U"P4";
+U"K" : U"P5";
+U"L" : U"P6";
+U"COMMA" : U"P2";
+U"PERIOD" : U"P3";
+U"SPACE" : U"P0";
+
+U"7" : U"NUMLOCK";
+U"8" : U"P/";
+U"9" : U"P*";
+U"0" : U"P-";
+U"P" : U"P+";
+U"SEMICOLON" : U"P+";
+U"UP" : U"P.";
+
+U"MINUS" : CONS"MUTE";
+U"RBRACE" : CONS"VOLUMEUP";
+U"QUOTE" : CONS"VOLUMEDOWN";
+U"SLASH" : U"PENTER";
+U"RIGHT" : U"PENTER";
+
+U"LCTRL" + U"F" : flashMode();

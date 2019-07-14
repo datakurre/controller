@@ -114,9 +114,9 @@ class STLcdGraphic:
 
 class ImageToStruct(object):
 
-    def __init__(self, filename):
+    def __init__(self, filename, max_width=128):
         self.max_height = 32
-        self.max_width = 128
+        self.max_width = max_width
         self.x_offset = 0
         self.y_offset = 0
         self.filename = filename
@@ -194,14 +194,14 @@ class ImageToStruct(object):
         image = self.create_and_convert_image()
         self.check_boundries(image)
         height_start, height_end, width_start, width_end = self.center_image(image)
-        disp_test = self.prepare_view(image, 
-                                      height_start, 
-                                      height_end, 
-                                      width_start, 
+        disp_test = self.prepare_view(image,
+                                      height_start,
+                                      height_end,
+                                      width_start,
                                       width_end)
         return disp_test
 
-    def output_image_fn(self): 
+    def output_image_fn(self):
         print(self.output_image.preview())
 
     def preview(self):
@@ -213,13 +213,18 @@ class ImageToStruct(object):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("-f", "--filename", 
-                        type=str, 
+    parser.add_argument("-f", "--filename",
+                        type=str,
                         required=True,
                         help="provide .bmp file")
+    parser.add_argument("-w", "--width",
+                        type=int,
+                        required=False,
+                        help="width")
     args = parser.parse_args()
     filename = args.filename
-    prep = ImageToStruct(filename)
+    width = args.width or 128
+    prep = ImageToStruct(filename, width)
     prep.preview()
     prep.output_image_fn()
     print("uint8_t array[] = {}".format(prep.getarray(string=True)))

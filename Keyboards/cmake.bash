@@ -33,7 +33,7 @@ for var in ${VariablesList[@]}; do
 done
 
 # Make sure pipenv is detected
-PIPENV_ACTIVE=${PIPENV_ACTIVE:-0}
+PIPENV_ACTIVE=${PIPENV_ACTIVE:-1}
 if [ $PIPENV_ACTIVE -ne 1 ]; then
 	CUR_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
 	echo "ERROR: pipenv is not active!"
